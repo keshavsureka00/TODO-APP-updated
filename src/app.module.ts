@@ -6,9 +6,17 @@ import { TodoModule } from './todo/todo.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://keshavsureka:mmtzt5CLQVZGnxV8@cluster0.swti0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'), TodoModule, UsersModule, AuthModule,ScheduleModule.forRoot()],
+  imports: [
+  MongooseModule.forRoot('mongodb+srv://keshavsureka:mmtzt5CLQVZGnxV8@cluster0.swti0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'), 
+  TodoModule, 
+  UsersModule, 
+  AuthModule,
+  ScheduleModule.forRoot(),
+  EventEmitterModule.forRoot(),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

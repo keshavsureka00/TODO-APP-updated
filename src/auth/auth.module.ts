@@ -10,7 +10,7 @@ import { SessionSerializer } from './session.serializer';
 @Module({
   imports: [UsersModule, PassportModule,JwtModule.register({
     secret: 'SECRET',
-    signOptions: { expiresIn: '60s'},
+    signOptions: { expiresIn: '120s'},
   })],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports:[AuthService,PassportModule, JwtStrategy, LocalStrategy]

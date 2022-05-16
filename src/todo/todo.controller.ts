@@ -9,6 +9,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { TaskStatus } from './dto/base-todo.dto';
+
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { TodoService } from './todo.service';
@@ -45,4 +47,12 @@ export class TodoController {
   async delete(@Param('id') id: string) {
     return await this.service.delete(id);
   }
+  @Put(':id/status')
+  async updateTaskStatus(
+    @Param('id')id: string,
+    @Body('status') status: TaskStatus,
+  ){
+    return await this.service.updateTaskStatus(id, status);
+  }
+
 }
